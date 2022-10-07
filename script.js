@@ -48,7 +48,7 @@ const randomAvatar = () => {
     }
     
     // In june use bi instead
-    if (true) {
+    if (new Date().getMonth() == 5) {
         avatar = "bi";
     }
     
