@@ -18,3 +18,20 @@ setInterval(() => {
     // Update age
     el_age.innerHTML = age.toFixed(8);
 }, 200);
+
+const contactForm = () => {
+    const msg = document.getElementById('msg').value;
+    const name = document.getElementById('name').value;
+
+    // send message via discord webhook
+    fetch('https://discord.com/api/webhooks/1027939719058829342/eaZtxghceOFzGaRbceCacKn3c7wcwAH8o-rj8awXPI5peFRb4OPdqJtExOdCop0Xf0tR', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            content: '<@332071218066751490> \n' + '**msg from: ' + name + '**:\n```' + msg + '```'
+        })
+    })
+
+}
