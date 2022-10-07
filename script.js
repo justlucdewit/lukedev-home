@@ -22,6 +22,12 @@ setInterval(() => {
 const contactForm = () => {
     const msg = document.getElementById('msg').value;
     const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    document.getElementById('msg').value = ""
+    document.getElementById('name').value = ""
+    document.getElementById('email').value = ""
+
+    alert("message send!");
 
     // send message via discord webhook
     fetch('https://discord.com/api/webhooks/1027939719058829342/eaZtxghceOFzGaRbceCacKn3c7wcwAH8o-rj8awXPI5peFRb4OPdqJtExOdCop0Xf0tR', {
@@ -30,7 +36,7 @@ const contactForm = () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            content: '<@332071218066751490> \n' + '**msg from: ' + name + '**:\n```' + msg + '```'
+            content: '<@332071218066751490> \n' + '**msg from: ' + name + ' (' + email + ')' + '**:\n```' + msg + '```'
         })
     })
 }
@@ -53,8 +59,6 @@ const randomAvatar = () => {
     }
     
     document.getElementById('avatar').src = '/images/lukes/' + avatar + '.png';
-
-    
 }
 
 randomAvatar();
