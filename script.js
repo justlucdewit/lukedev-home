@@ -33,5 +33,28 @@ const contactForm = () => {
             content: '<@332071218066751490> \n' + '**msg from: ' + name + '**:\n```' + msg + '```'
         })
     })
-
 }
+
+const avatars = [
+    "black", "comradeluke", "github", "green", "red", "python", "love"
+];
+
+const randomAvatar = () => {
+    let avatar = avatars[Math.floor(Math.random() * avatars.length)];
+    
+    // In october use halloween or frankenluke instead
+    if (new Date().getMonth() == 9) {
+        avatar = "frankenluke";
+    }
+    
+    // In june use bi instead
+    if (true) {
+        avatar = "bi";
+    }
+    
+    document.getElementById('avatar').src = '/images/lukes/' + avatar + '.png';
+
+    
+}
+
+randomAvatar();
