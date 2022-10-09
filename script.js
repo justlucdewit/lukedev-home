@@ -57,6 +57,11 @@ const randomAvatar = () => {
     if (new Date().getMonth() == 5) {
         avatar = "bi";
     }
+
+    // If its 1 day before or after or on easter, use easter
+    if (new Date().getMonth() == 3 && new Date().getDate() == 31) {
+        avatar = "easter";
+    }
     
     document.getElementById('avatar').src = '/images/lukes/' + avatar + '.png';
 }
